@@ -2,8 +2,8 @@
 = form_with(model: @task, data: { turbo: false }, url: tasks_path) do |f|
   %p "Title"
   = f.text_field :title
-  %p= "description"
+  %p "Description"
   = f.text_field :description
-  %p= "Due to"
+  %p "Due to"
   = f.date_field :due_to
   = f.submit "Create Task"
