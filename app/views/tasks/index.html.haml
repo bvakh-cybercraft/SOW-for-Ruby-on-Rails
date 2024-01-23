@@ -1,0 +1,9 @@
+- @tasks.each do |task|
+    %p= task.title
+    %p= task.description
+    %p= task.due_date
+    %div
+        = button_to "Delete", task_path(task), method: :delete, 
+        data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
+        = link_to "Edit", edit_task_path(task)
+    %hr
