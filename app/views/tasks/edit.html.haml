@@ -13,6 +13,11 @@
   = f.check_box :status, { checked: @task }, :completed, :active
   = f.label "Completed"
 
+  %p "Priority"
+  - Task.priorities.each do |key, value| 
+    = f.radio_button :priority, key
+    = f.label "priority_#{key}", key.to_s.humanize
+
   = f.submit "Update Task"
 
 - if @task.errors.any?

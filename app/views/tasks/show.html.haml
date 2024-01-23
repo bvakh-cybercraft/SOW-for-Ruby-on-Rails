@@ -2,5 +2,6 @@
 %p= @task.description
 %p= @task.due_date
 %p= @task.status
+%p= @task.priority
 = button_to "Delete", task_path(@task), method: :delete, 
     data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }

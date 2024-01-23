@@ -7,9 +7,10 @@
   %p Due to
   = f.date_field :due_date
 
-  %p Status
-  = f.check_box :status, { checked: @task }, :completed, :active
-  = f.label "Completed"
+  %p "Priority"
+  - Task.priorities.each do |key, value| 
+    = f.radio_button :priority, key
+    = f.label "priority_#{key}", key.to_s.humanize
   
   = f.submit "Create Task"
 
