@@ -7,3 +7,7 @@
   %p "Due to"
   = f.date_field :due_date
   = f.submit "Create Task"
+  
+- if @task.errors.any?
+  - @task.errors.full_messages.each do |message|
+    %p= message
