@@ -1,11 +1,18 @@
 %h1 Update the Task
 = form_with(model: @task, data: { turbo: false }, url: task_path(@task)) do |f|
-  %p "Title"
+  %p Title
   = f.text_field :title
-  %p "Description"
+
+  %p Description
   = f.text_field :description
-  %p "Due to"
+
+  %p Due to
   = f.date_field :due_date
+
+  %p Status
+  = f.check_box :status, { checked: @task }, :completed, :active
+  = f.label "Completed"
+
   = f.submit "Update Task"
 
 - if @task.errors.any?
