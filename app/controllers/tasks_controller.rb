@@ -1,14 +1,15 @@
 class TasksController < ApplicationController
   before_action :find_task, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @tasks = Task.all
+  end
+
   def new
     @task = Task.new
   end
 
   def create
-
-    binding.pry
-
     @task = Task.new(task_params)
     if @task.save
       redirect_to @task
@@ -33,7 +34,7 @@ class TasksController < ApplicationController
 
   def destroy
     if @task.destroy
-      render :new
+      redirect_to tasks_path
     end
   end
 
