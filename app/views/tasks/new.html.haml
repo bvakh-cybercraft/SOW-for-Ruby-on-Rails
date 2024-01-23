@@ -1,0 +1,9 @@
+%h1 Create new Task
+= form_with(model: @task, data: { turbo: false }, url: tasks_path) do |f|
+  %p "Title"
+  = f.text_field :title
+  %p= "description"
+  = f.text_field :description
+  %p= "Due to"
+  = f.date_field :due_to
+  = f.submit "Create Task"
