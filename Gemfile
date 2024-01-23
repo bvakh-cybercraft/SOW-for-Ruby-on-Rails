@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 gem "haml-rails", "~> 2.0"
 gem 'html2haml', '~> 2.3'
 
+gem 'pry-rails', '~> 0.3.9'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
