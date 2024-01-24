@@ -6,6 +6,8 @@
     %p= task.due_date
     %p= task.status
     %p= task.priority
+    - task.images.each do |image|
+        = image_tag image, width: "100px"
     %div
         = button_to "Delete", task_path(task), method: :delete, 
         data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
