@@ -41,6 +41,8 @@ class TasksController < ApplicationController
   private
   def find_task
     @task = Task.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path
   end
 
   def task_params
