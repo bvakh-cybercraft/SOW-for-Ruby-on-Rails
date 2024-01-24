@@ -1,8 +1,11 @@
 class TasksController < ApplicationController
   before_action :find_task, only: [:show, :edit, :update, :destroy]
 
+  has_scope :by_status
+  has_scope :by_priority
+
   def index
-    @tasks = Task.all
+    @tasks = apply_scopes(Task).all
   end
 
   def new
