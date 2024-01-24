@@ -46,6 +46,8 @@ gem 'html2haml', '~> 2.3'
 
 gem 'pry-rails', '~> 0.3.9'
 
+gem 'has_scope', '~> 0.8.0'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
