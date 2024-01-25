@@ -18,5 +18,6 @@ module TasksHelper
       'bg-success'
     when :completed
       'bg-secondary'
+    end
   end
 end
