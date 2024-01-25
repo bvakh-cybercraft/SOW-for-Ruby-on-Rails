@@ -3,3 +3,4 @@
 %p= @task.due_date
 = button_to "Delete", task_path(@task), method: :delete, 
     data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
+    
