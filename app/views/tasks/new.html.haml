@@ -6,6 +6,8 @@
   = f.text_field :description
   %p Due to
   = f.date_field :due_date
+  %p Files
+  = f.file_field :images, multiple: true
 
   %p "Priority"
   - Task.priorities.each do |key, value| 
