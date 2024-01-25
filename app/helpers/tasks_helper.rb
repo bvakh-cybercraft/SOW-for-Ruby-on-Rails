@@ -28,4 +28,28 @@ module TasksHelper
       end
     end
   end
+
+  def display_images(obj)
+    images = obj.images
+    max_count = 5
+
+    if images.count <= max_count
+      images.each do |image|
+        concat(image_tag(image, width: "140px", class: "rounded"))
+      end
+    else
+      images.first(max_count).each do |image|
+        concat(image_tag(image, width: "140px", class: "img-fluid rounded p-1", style: "width: 140px"))
+      end
+    end
+  end
+
+  def see_all(obj)
+
+    binding.pry
+
+    if !obj.images.empty?
+      concat(link_to('See all...', task_path(obj), class: "btn btn-outline-primary", style: "height: fit-content"))
+    end
+  end
 end

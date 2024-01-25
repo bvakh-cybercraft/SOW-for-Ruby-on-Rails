@@ -16,6 +16,8 @@
                         data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
                 %p= task.description
                 %p= task.due_date.strftime("%d %b %Y")
-                .d-flex.gap-2
-                    - task.images.each do |image|
-                        = image_tag image, width: "140px", class: "rounded"
+                .d-flex.align-items-center
+                    .container-lg
+                        .row.row-cols-1.row-cols-sm-2.row-cols-md-3
+                            - display_images(task)
+                    - see_all(task)

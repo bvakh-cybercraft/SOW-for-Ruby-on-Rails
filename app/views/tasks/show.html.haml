@@ -4,11 +4,16 @@
         %h3= @task.title
         %p.mt-3= @task.description
         %p.mt-3= @task.due_date.strftime("%d %b %Y")
-        %p.badge{ class: "text-wrap.mt-1 #{priority_color(@task)}" }= @task.priority
-        - @task.images.each do |image|
-            = image_tag image, width: "100px"
 
-        .d-flex.justify-content-between
+        %p.badge{ class: "text-wrap.mt-1 #{priority_color(@task)}" }= @task.priority
+
+        .container-lg
+            .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+                - @task.images.each do |image|
+                    .col
+                        = image_tag image, class: "img-fluid rounded"
+
+        .d-flex.justify-content-between.mt-3
             = link_to "Home", root_path, class: "btn btn-primary"
             .d-flex.gap-2
                 = link_to "Edit", edit_task_path(@task), class: "btn btn-warning"
