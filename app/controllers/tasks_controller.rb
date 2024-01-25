@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   has_scope :by_priority
 
   def index
-    @tasks = apply_scopes(Task).all
+    @tasks = apply_scopes(Task.includes(images_attachments: :blob)).all
   end
 
   def new
@@ -29,7 +29,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to @task
+      redirect_to @task, notice: 'Task was successfully updated.'
     else
       render :edit
     end
@@ -47,6 +47,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description, :due_date, :status, :priority)
+    params.require(:task).permit(:title, :description, :due_date, :status, :priority, images: [])
   end
 end
