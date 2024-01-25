@@ -1,13 +1,19 @@
 %h1 Create new Task
 = form_with(model: @task, data: { turbo: false }, url: tasks_path) do |f|
-  %p "Title"
+  %p Title
   = f.text_field :title
-  %p "Description"
+  %p Description
   = f.text_field :description
-  %p "Due to"
+  %p Due to
   = f.date_field :due_date
-  = f.submit "Create Task"
+
+  %p "Priority"
+  - Task.priorities.each do |key, value| 
+    = f.radio_button :priority, key
+    = f.label "priority_#{key}", key.to_s.humanize
   
+  = f.submit "Create Task"
+
 - if @task.errors.any?
   - @task.errors.full_messages.each do |message|
     %p= message
