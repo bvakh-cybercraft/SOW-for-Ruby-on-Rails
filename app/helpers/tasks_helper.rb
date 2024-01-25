@@ -45,9 +45,6 @@ module TasksHelper
   end
 
   def see_all(obj)
-
-    binding.pry
-
     if !obj.images.empty?
       concat(link_to('See all...', task_path(obj), class: "btn btn-outline-primary", style: "height: fit-content"))
     end
