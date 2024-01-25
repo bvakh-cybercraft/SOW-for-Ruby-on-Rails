@@ -12,8 +12,8 @@
 default: &default
   adapter: mysql2
   encoding: <%= ENV.fetch('DB_ENCODING') %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  port: <%= ENV.fetch('DB_PORT') %>
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+  port: <%= ENV.fetch('DB_PORT') { 3000 } %>
   username: <%= ENV.fetch('DB_USERNAME') %>
   password: <%= ENV.fetch('DB_PASSWORD') %>
   host: <%= ENV.fetch('DB_HOST') %>

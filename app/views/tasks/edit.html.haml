@@ -1,0 +1,14 @@
+%h1 Update the Task
+= form_with(model: @task, data: { turbo: false }, url: task_path(@task)) do |f|
+  %p "Title"
+  = f.text_field :title
+  %p "Description"
+  = f.text_field :description
+  %p "Due to"
+  = f.date_field :due_date
+  = f.submit "Update Task"
+
+- if @task.errors.any?
+  - @task.errors.full_messages.each do |message|
+    %p= message
+    
