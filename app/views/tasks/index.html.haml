@@ -1,10 +1,11 @@
-%div{class: "d-flex gap-2", style: "background-color: rgb(240, 240, 240);"}
+%div{class: "d-flex gap-2 min-vh-100", style: "background-color: rgb(240, 240, 240);"}
     %div{class: "w-25 p-3", style: "background-color: rgb(255, 255, 255);"}
         = render "tasks/partials/filters"
 
-    %div{class: "w-75 p-3", style: "background-color: rgb(255, 255, 255);"}
+    %div{class: "w-75 p-3 d-flex flex-column gap-1"}
         - @tasks.each do |task|
-            .mb-3
+            %div{class: "mb-2 p-2 rounded", style: "background-color: rgb(255, 255, 255);"}
+                %p.badge{ class: "text-wrap mt-1 w-100 #{active_check(task)}" }= task.status
                 .d-flex.justify-content-between
                     .d-flex.gap-2
                         %h5= task.title
@@ -14,8 +15,7 @@
                         = button_to "Delete", task_path(task), method: :delete, class: "btn btn-outline-danger",
                         data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
                 %p= task.description
-                %p= task.due_date
-                %p= task.status
-                - task.images.each do |image|
-                    = image_tag image, width: "140px"
-                %hr
+                %p= task.due_date.strftime("%d %b %Y")
+                .d-flex.gap-2
+                    - task.images.each do |image|
+                        = image_tag image, width: "140px", class: "rounded"
