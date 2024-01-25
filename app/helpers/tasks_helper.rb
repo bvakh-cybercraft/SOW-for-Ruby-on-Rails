@@ -20,4 +20,12 @@ module TasksHelper
       'bg-secondary'
     end
   end
+
+  def display_errors_for_attribute(obj, attribute)
+    if obj.errors[attribute].any?
+      obj.errors[attribute].each do |error|
+        concat(content_tag(:p, error, class: 'text-danger'))
+      end
+    end
+  end
 end
