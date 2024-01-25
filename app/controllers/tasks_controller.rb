@@ -15,9 +15,9 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to @task
+      redirect_to @task, notice: "Task was created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,14 +29,16 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to @task, notice: 'Task was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    return unless @task.destroy
-
-    redirect_to tasks_path
+    if @task.destroy
+      redirect_to tasks_path, notice: "Task was successfully deleted."
+    else
+      redirect_to tasks_path, alert: "Unable to delete the task."
+    end
   end
 
   private
