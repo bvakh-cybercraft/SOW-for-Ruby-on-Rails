@@ -1,15 +1,21 @@
-= render "tasks/partials/filters"
+%div{class: "d-flex gap-2", style: "background-color: rgb(240, 240, 240);"}
+    %div{class: "w-25 p-3", style: "background-color: rgb(255, 255, 255);"}
+        = render "tasks/partials/filters"
 
-- @tasks.each do |task|
-    %p= task.title
-    %p= task.description
-    %p= task.due_date
-    %p= task.status
-    %p= task.priority
-    - task.images.each do |image|
-        = image_tag image, width: "100px"
-    %div
-        = button_to "Delete", task_path(task), method: :delete, 
-        data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
-        = link_to "Edit", edit_task_path(task)
-    %hr
+    %div{class: "w-75 p-3", style: "background-color: rgb(255, 255, 255);"}
+        - @tasks.each do |task|
+            .mb-3
+                .d-flex.justify-content-between
+                    .d-flex.gap-2
+                        %h5= task.title
+                        %p.badge{ class: "text-wrap.mt-1 #{priority_color(task)}" }= task.priority
+                    %div.d-flex.gap-2
+                        = link_to "Edit", edit_task_path(task), class: "btn btn-outline-secondary"
+                        = button_to "Delete", task_path(task), method: :delete, class: "btn btn-outline-danger",
+                        data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
+                %p= task.description
+                %p= task.due_date
+                %p= task.status
+                - task.images.each do |image|
+                    = image_tag image, width: "140px"
+                %hr
