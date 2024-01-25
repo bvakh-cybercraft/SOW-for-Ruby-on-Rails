@@ -50,8 +50,6 @@ gem 'pry-rails', '~> 0.3.9'
 
 gem 'has_scope', '~> 0.8.0'
 
-gem 'rubocop-rails', '~> 2.23', '>= 2.23.1'
-
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
