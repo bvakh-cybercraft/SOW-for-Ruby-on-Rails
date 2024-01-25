@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: [:show, :edit, :update, :destroy]
+  before_action :find_task, only: %i[show edit update destroy]
 
   has_scope :by_status
   has_scope :by_priority
@@ -21,11 +21,9 @@ class TasksController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @task.update(task_params)
@@ -36,14 +34,17 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    if @task.destroy
-      redirect_to tasks_path
-    end
+    return unless @task.destroy
+
+    redirect_to tasks_path
   end
 
   private
+
   def find_task
     @task = Task.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path
   end
 
   def task_params
