@@ -46,7 +46,7 @@ module TasksHelper
 
   def see_all(obj)
     if !obj.images.empty?
-      concat(link_to('See all...', task_path(obj), class: "btn btn-outline-primary", style: "height: fit-content"))
+      concat(link_to('See more attached files...', task_path(obj), class: "btn btn-outline-primary", style: "height: fit-content"))
     end
   end
 end
