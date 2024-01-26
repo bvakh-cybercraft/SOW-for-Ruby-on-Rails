@@ -22,10 +22,10 @@ module TasksHelper
   end
 
   def display_errors_for_attribute(obj, attribute)
-    if obj.errors[attribute].any?
-      obj.errors[attribute].each do |error|
-        concat(content_tag(:p, error, class: 'text-danger'))
-      end
+    return unless obj.errors[attribute].any?
+
+    obj.errors[attribute].each do |error|
+      concat(content_tag(:p, error, class: 'text-danger'))
     end
   end
 
@@ -35,18 +35,19 @@ module TasksHelper
 
     if images.count <= max_count
       images.each do |image|
-        concat(image_tag(image, width: "140px", class: "rounded"))
+        concat(image_tag(image, width: '140px', class: 'rounded'))
       end
     else
       images.first(max_count).each do |image|
-        concat(image_tag(image, width: "140px", class: "img-fluid rounded p-1", style: "width: 140px"))
+        concat(image_tag(image, width: '140px', class: 'img-fluid rounded p-1', style: 'width: 140px'))
       end
     end
   end
 
   def see_all(obj)
-    if !obj.images.empty?
-      concat(link_to('See more attached files...', task_path(obj), class: "btn btn-outline-primary", style: "height: fit-content"))
-    end
+    return if obj.images.empty?
+
+    concat(link_to('See more attached files...', task_path(obj), class: 'btn btn-outline-primary',
+                                                                 style: 'height: fit-content'))
   end
 end
