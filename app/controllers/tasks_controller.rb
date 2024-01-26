@@ -34,10 +34,11 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    if @task.destroy
-      redirect_to tasks_path, notice: 'Task was successfully deleted.'
-    else
-      redirect_to tasks_path, alert: 'Unable to delete the task.'
+    @task.destroy
+    respond_to do |format|
+      format.html { redirect_to tasks_url, notice: "task was successfully destroyed." }
+      format.json { head :no_content }
+      format.js
     end
   end
 
