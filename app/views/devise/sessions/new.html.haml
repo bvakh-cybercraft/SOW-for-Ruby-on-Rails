@@ -1,0 +1,21 @@
+.container-lg.mt-5
+  .w-100
+    .col-12.col-md-6.p-3.bg-light.rounded.mx-sm-auto.p-1.p-md-5
+      %h2.text-center.mb-3 Log in
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          = f.label :email, class: "mb-1"
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-3", required: true
+        .field
+          = f.label :password, class: "mb-1"
+          %br/
+          = f.password_field :password, autocomplete: "current-password", class: "form-control mb-3", required: true
+        - if devise_mapping.rememberable?
+          .field
+            = f.check_box :remember_me, class: "form-check-input"
+            = f.label :remember_me, class: "form-check-label"
+        .actions
+          = f.submit "Log in", class: "my-3 btn btn-primary w-100"
+      .text-center
+        = render "devise/shared/links"
