@@ -19,3 +19,8 @@
                 .d-flex.gap-2
                     - task.images.each do |image|
                         = image_tag image, width: "140px", class: "rounded"
+
+        .row.margin-twenty5-zero.margin-b-zero.pagination-row
+
+        .text-center.my-1.mx-auto
+            = paginate @tasks, exclude: [:first, :last]
