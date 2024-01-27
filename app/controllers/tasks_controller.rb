@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   has_scope :by_priority
 
   def index
-    @tasks = apply_scopes(Task.includes(images_attachments: :blob)).all
+    @tasks = apply_scopes(Task.includes(images_attachments: :blob)).page(params[:page]).per(4)
   end
 
   def new
