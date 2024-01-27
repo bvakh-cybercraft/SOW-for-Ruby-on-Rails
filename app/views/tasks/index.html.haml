@@ -3,6 +3,9 @@
         = render "tasks/partials/filters"
 
     %div{class: "w-75 p-3 d-flex flex-column gap-1"}
+        %div.d-flex.justify-content-between
+            %div
+            =  button_to "Sign Out", destroy_user_session_path, class: "btn btn-danger mb-3", method: :delete
         - @tasks.each do |task|
             %div{class: "mb-2 p-2 rounded", style: "background-color: rgb(255, 255, 255);"}
                 %p.badge{ class: "text-wrap mt-1 w-100 #{active_check(task)}" }= task.status
