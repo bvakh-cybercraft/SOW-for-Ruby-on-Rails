@@ -6,7 +6,7 @@
         %div{class: "col-12 col-md-9 p-3 bg-white rounded"}
             %div{class: "w-100 w-md-75 p-3 d-flex flex-column gap-1"}
                 - @tasks.each do |task|
-                    %div{class: "mb-2 p-2 rounded shadow-sm", style: "background-color: rgb(255, 255, 255);", id: "#{task.id}"}
+                    %div{class: "mb-2 p-2 rounded shadow-sm task-container", style: "background-color: rgb(255, 255, 255);", id: "#{task.id}"}
                         %p.badge{ class: "text-wrap mt-1 w-100 #{active_check(task)}" }= task.status
                         .d-flex.justify-content-between
                             .d-flex.gap-2
