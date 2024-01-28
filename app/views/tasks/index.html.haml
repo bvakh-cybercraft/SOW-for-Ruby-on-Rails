@@ -6,7 +6,7 @@
         %div{class: "col-12 col-md-9 p-3 bg-white rounded"}
             %div{class: "w-100 w-md-75 p-3 d-flex flex-column gap-1"}
                 - @tasks.each do |task|
-                    %div{class: "mb-2 p-2 rounded shadow-sm", id: "{task.id}", style: "background-color: rgb(255, 255, 255);"}
+                    %div{class: "mb-2 p-2 rounded shadow-sm", style: "background-color: rgb(255, 255, 255);", id: "#{task.id}"}
                         %p.badge{ class: "text-wrap mt-1 w-100 #{active_check(task)}" }= task.status
                         .d-flex.justify-content-between
                             .d-flex.gap-2
@@ -16,7 +16,6 @@
                             %div.d-flex.gap-2.flex-column.flex-sm-row
                                 = link_to "Edit", edit_task_path(task), class: "btn btn-outline-secondary"
                                 = link_to "Destroy", task, method: :delete, class: "delete_task btn btn-outline-danger", data: { remote: true, turbo_confirm: 'Are you sure?' }
-                                = button_to "Delete", task_path(task), method: :delete, class: "delete_task btn btn-outline-danger", data: { remote: true, turbo_confirm: 'Are you sure?' }
                         %p= task.description
                         %p= task.due_date.strftime("%d %b %Y")
                         .d-none.d-sm-flex.align-items-center
