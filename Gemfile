@@ -18,6 +18,8 @@ gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 gem 'sass-rails', '~> 6.0'
 
+gem 'devise', '~> 4.9', '>= 4.9.3'
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 
