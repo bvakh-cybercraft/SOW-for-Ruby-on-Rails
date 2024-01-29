@@ -44,7 +44,7 @@ Rails will automatically show all the logs on your terminal window.
 If you are working on the Ubuntu operating system, you can follow these steps to run the project:
 
 ### Installing Dependencies
-Install the necessary packages such as Ruby and PostgreSQL using the following commands:
+Install the necessary packages such as Ruby and MySQL using the following commands:
 
 ```bash
 sudo apt update
