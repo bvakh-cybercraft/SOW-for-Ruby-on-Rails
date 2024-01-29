@@ -1,22 +1,2 @@
-%h1 Create new Task
-= form_with(model: @task, data: { turbo: false }, url: tasks_path) do |f|
-  %p Title
-  = f.text_field :title
-  %p Description
-  = f.text_field :description
-  %p Due to
-  = f.date_field :due_date
-  %p Files
-  = f.file_field :images, multiple: true
-
-  %p "Priority"
-  - Task.priorities.each do |key, value| 
-    = f.radio_button :priority, key
-    = f.label "priority_#{key}", key.to_s.humanize
-  
-  = f.submit "Create Task"
-
-- if @task.errors.any?
-  - @task.errors.full_messages.each do |message|
-    %p= message
-    
+%h3.mt-5.mb-5.text-center Update the Task
+= render "form", task: @task
