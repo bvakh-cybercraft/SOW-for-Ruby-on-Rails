@@ -1,5 +1,5 @@
 %div{class: "container-lg mt-lg-5"}
-    %div{class: "row g-3 bg-white rounded"}
+    %div{class: "row g-3 bg-white rounded mb-3"}
         %div{class: "col-12 col-md-3 p-3 bg-white rounded"}
             = render "filters"
             = link_to "Add new Task", new_task_path, class: "btn btn-outline-primary w-100 mt-3"
@@ -26,5 +26,5 @@
 
                 .row.margin-twenty5-zero.margin-b-zero.pagination-row
 
-                .text-center.my-1.mx-auto
+                .text-center.mb-1.mx-auto
                     = paginate @tasks
