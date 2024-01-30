@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :find_task, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   has_scope :by_status
   has_scope :by_priority
