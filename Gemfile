@@ -66,6 +66,14 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 
   gem 'byebug', '~> 11.1', '>= 11.1.3'
+
+  gem 'rspec-rails', '~> 6.1', '>= 6.1.1'
+
+  gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
+
+  gem 'faker', '~> 3.2'
+
+  gem 'bullet', '~> 7.1', '>= 7.1.6'
 end
 
 group :development do
@@ -73,8 +81,6 @@ group :development do
   gem 'web-console'
 
   gem 'active_record_doctor', '~> 1.14'
-
-  gem 'bullet', '~> 7.1', '>= 7.1.6'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -89,4 +95,5 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 6.1'
 end
