@@ -5,8 +5,8 @@ class Task < ApplicationRecord
   enum status: { active: 0, completed: 1 }
   enum priority: { low: 0, medium: 1, high: 2 }
 
-  validates :title, presence: true
-  validates :description, presence: true
+  validates :title, presence: true, length: { maximum: 120 }
+  validates :description, presence: true, length: { maximum: 200 }
   validates :due_date, presence: true
 
   has_many_attached :images
