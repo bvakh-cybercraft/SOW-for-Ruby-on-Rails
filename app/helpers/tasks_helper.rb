@@ -35,11 +35,11 @@ module TasksHelper
 
     if images.count <= max_count
       images.each do |image|
-        concat(image_tag(image, width: '140px', class: 'rounded'))
+        concat(content_tag(:div, image_tag(image, class: 'img-fluid rounded p-0', style: 'max-width: 100%; height: auto;'), class: 'col p-1'))
       end
     else
       images.first(max_count).each do |image|
-        concat(image_tag(image, width: '140px', class: 'img-fluid rounded p-1', style: 'width: 140px'))
+        concat(content_tag(:div, image_tag(image, class: 'img-fluid rounded', style: 'max-width: 100%; height: auto;'), class: 'col p-1'))
       end
     end
   end
@@ -47,7 +47,7 @@ module TasksHelper
   def see_all(obj)
     return if obj.images.empty?
 
-    concat(link_to('See more attached files...', task_path(obj), class: 'btn btn-outline-primary',
+    concat(link_to('See more attached files...', task_path(obj), class: 'btn btn-outline-primary mt-2',
                                                                  style: 'height: fit-content'))
   end
 end
