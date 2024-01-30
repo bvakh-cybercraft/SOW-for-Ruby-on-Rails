@@ -25,6 +25,18 @@ Task.create!([
     title: "Do workout",
     description: "Lorem ipsum dolor sit amet",
     due_date: Date.today,
+    priority: "medium"
+  },
+  {
+    title: "Reed the book",
+    description: "Lorem ipsum dolor sit amet",
+    due_date: Date.today,
+    priority: "high"
+  },
+  {
+    title: "Task a walk",
+    description: "Lorem ipsum dolor sit amet",
+    due_date: Date.today,
     priority: "low"
   }
 ])
