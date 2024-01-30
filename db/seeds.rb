@@ -8,6 +8,25 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-30.times do |i|
-  Task.create(title: "Task #{i}", description: "A task.", priority: "medium")
-end
+Task.create!([
+  {
+    title: "Do homework",
+    description: "Lorem ipsum dolor sit amet",
+    due_date: Date.today,
+    priority: "medium"
+  },
+  {
+    title: "Feed my dogs",
+    description: "Lorem ipsum dolor sit amet",
+    due_date: Date.today,
+    priority: "high"
+  },
+  {
+    title: "Do workout",
+    description: "Lorem ipsum dolor sit amet",
+    due_date: Date.today,
+    priority: "low"
+  }
+])
+
+User.create!(email: "Localuser@example.com", password: "password", password_confirmation: "password")
