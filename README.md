@@ -100,7 +100,12 @@ To create a first user run:
 rails c
 ```
 
-2. Run command to create the user, replace YOUR_EMAIL_ADDRESS with your email
+2. Use these credentials to sign in
+
+email: `localuser@example.com`, 
+password: `password`
+
+Or run command to create your own user, replace YOUR_EMAIL_ADDRESS with your email (you can provide your own password)
 
 ```
 User.create!(email: "YOUR_EMAIL_ADDRESS", password: "password", password_confirmation: "password")
