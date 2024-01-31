@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
+  belongs_to :user
+
   scope :by_status, ->(status) { where(status: statuses[status]) }
   scope :by_priority, ->(priority) { where(priority: priorities[priority]) }
 
