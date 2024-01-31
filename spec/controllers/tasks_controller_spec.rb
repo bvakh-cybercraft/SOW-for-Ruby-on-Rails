@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe TasksController, type: :controller do
+  include Devise::Test::ControllerHelpers
+
+  before(:each) do
+    @user = FactoryBot.create(:user)
+    sign_in @user
+  end
+
   describe 'GET #index' do
     it 'returns a successful response' do
       get :index
@@ -56,7 +63,7 @@ RSpec.describe TasksController, type: :controller do
 
   describe 'GET #show' do
     it 'returns a successful response' do
-      task = create(:task)
+      task = create(:task, user: @user)
       get :show, params: { id: task.to_param }
       expect(response).to be_successful
     end
@@ -64,7 +71,7 @@ RSpec.describe TasksController, type: :controller do
 
   describe 'GET #edit' do
     it 'returns a successful response' do
-      task = create(:task)
+      task = create(:task, user: @user)
       get :edit, params: { id: task.to_param }
       expect(response).to be_successful
     end
@@ -74,7 +81,7 @@ RSpec.describe TasksController, type: :controller do
     context 'with valid parameters' do
       it 'updates the requested task' do
         new_attributes = { title: 'New Title' }
-        task = create(:task)
+        task = create(:task, user: @user)
 
         put :update, params: { id: task.to_param, task: new_attributes }
         task.reload
@@ -84,7 +91,7 @@ RSpec.describe TasksController, type: :controller do
 
     context 'with invalid parameters' do
       it 'does not update the task' do
-        task = create(:task)
+        task = create(:task, user: @user)
         patch :update, params: { id: task.to_param, task: attributes_for(:task, title: nil) }
         task.reload
         expect(task.title).not_to eq(nil)
@@ -94,14 +101,14 @@ RSpec.describe TasksController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'destroys the requested task' do
-      task = create(:task)
+      task = create(:task, user: @user)
       expect {
         delete :destroy, params: { id: task.to_param }
       }.to change(Task, :count).by(-1)
     end
 
     it 'redirects to the tasks list' do
-      task = create(:task)
+      task = create(:task, user: @user)
       delete :destroy, params: { id: task.to_param }
       expect(response).to redirect_to(tasks_url)
     end
