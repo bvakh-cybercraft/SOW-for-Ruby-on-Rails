@@ -30,7 +30,6 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      @task.save
       respond_to do |format|
         format.js
         format.html { redirect_to tasks_url, notice: 'Task was successfully updated.' }
@@ -62,7 +61,7 @@ class TasksController < ApplicationController
   end
 
   def is_author?
-    redirect_to root_path, alert: "Access is denied. You are not the author of this task." unless @task.user == current_user
+    return redirect_to root_path, alert: "Access is denied. You are not the author of this task." unless @task.user == current_user
   end
 
   def task_params
