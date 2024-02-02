@@ -30,16 +30,9 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      respond_to do |format|
-        format.js
-        format.html { redirect_to tasks_url, notice: 'Task was successfully updated.' }
-        format.json { head :no_content }
-      end
+      redirect_to @task, notice: 'Task was successfully updated.'
     else
-      respond_to do |format|
-        format.js
-        format.html { render :edit, alert: 'Failed to update task.', status: :unprocessable_entity }
-      end
+      render :edit, status: :unprocessable_entity
     end
   end
 
