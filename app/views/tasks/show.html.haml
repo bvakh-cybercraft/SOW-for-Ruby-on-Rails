@@ -13,11 +13,11 @@
                     .col
                         = image_tag image, class: "img-fluid rounded"
         - @task.task_checkboxes.each do |task_checkbox|
-            %div{class: "d-flex gap-5 align-items-center", id: "#{task_checkbox.id}"}
-                .d-flex.gap-2.mt-1
+            %div{class: "d-flex gap-4 align-items-center", id: "#{task_checkbox.id}"}
+                = link_to "Delete", task_checkbox_path(task_checkbox), method: :delete, data: { remote: true }, class: "btn btn-outline-danger btn-sm"
+                .d-flex.gap-4.mt-1
                     %input.form-check-input{ type: "checkbox", checked: (task_checkbox.checked ? "completed" : nil)}
                     %h6= task_checkbox.name
-                = link_to "Delete", task_checkbox_path(task_checkbox), method: :delete, data: { remote: true }, class: "btn btn-danger btn-sm"
         .d-flex.justify-content-between.mt-3
             = link_to "Home", root_path, class: "btn btn-primary"
             .d-flex.gap-2
