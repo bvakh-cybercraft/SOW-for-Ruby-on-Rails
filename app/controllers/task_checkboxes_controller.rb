@@ -9,11 +9,14 @@ class TaskCheckboxesController < ApplicationController
   end
 
   def destroy
-
-    binding.pry
-
     @task_checkbox = TaskCheckbox.find(params[:id])
+    @task_id = @task_checkbox.task.id
     @task_checkbox.destroy
+    respond_to do |format|
+      format.html { redirect_to task_path(@task_id), notice: "task checkbox was successfully destroyed." }
+      format.json { head :no_content }
+      format.js
+    end
   end
 
   private
