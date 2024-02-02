@@ -17,7 +17,6 @@
                                     %h5= task.title
                                 %p.badge{ class: "text-wrap mt-1 mb-auto #{priority_color(task)}" }= task.priority
                             %div.d-flex.gap-2.flex-column.flex-sm-row
-                                = check_box_tag("complete_#{task.id}", class: "complete-checkbox", data: { remote: true, turbo_confirm: 'Are you sure?', taskId: task.id, url: task_path(task), method: :patch }, checked: (task.completed? ? 'checked' : nil))
                                 = link_to "Edit", edit_task_path(task), class: "btn btn-outline-secondary"
                                 = link_to "Destroy", task, method: :delete, class: "delete_task btn btn-outline-danger", data: { remote: true, turbo_confirm: 'Are you sure?' }
                         %p= task.description
