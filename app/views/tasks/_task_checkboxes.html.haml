@@ -9,7 +9,7 @@
                         %input.form-check-input{ type: "checkbox", class: "mt-2", "data-action": "task-checkbox#mark_as_completed", remote: true }
                 .col-11.col-sm-11.px-0.mx-0
                     .d-sm-flex.gap-2.mr-0
-                        %input.form-control.col-12.col-sm{ type: "text", "data-action": "task-checkbox#triggerNameChange", value: task_checkbox.name }
+                        %input.form-control.col-12.col-sm{ type: "text", value: task_checkbox.name }
             %div{ class: "col-12 col-sm-2 col-xl-1 px-0", id: "update_btn_container", style: "display: none" }
                 %button.btn.btn-primary.my-2.my-sm-0.w-100{ "data-action": "task-checkbox#triggerNameChange" } Update
             .col-12.col-sm-2.col-xl-1.px-0

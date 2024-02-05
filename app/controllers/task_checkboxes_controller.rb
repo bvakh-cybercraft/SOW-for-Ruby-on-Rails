@@ -3,7 +3,7 @@ class TaskCheckboxesController < ApplicationController
     @task_checkbox = TaskCheckbox.find(params[:id])
 
     if @task_checkbox.update(task_checkbox_params)
-      render json: { status: 'success' }
+      render json: { status: 'success', notice: "task checkbox was successfully updated." }
     else
       render json: { status: 'error' }, status: :unprocessable_entity
     end

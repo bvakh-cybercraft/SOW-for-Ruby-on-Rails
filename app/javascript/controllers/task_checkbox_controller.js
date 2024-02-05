@@ -1,5 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
 
+function showNotice(message) {
+  const messageContainer = document.getElementById("message_container");
+  const notice = document.createElement("p");
+  notice.classList.add("mx-3", "mt-3", "alert", "alert-success");
+  notice.textContent = message;
+  messageContainer.appendChild(notice);
+
+  setTimeout(() => {
+    notice.remove();
+  }, 5000);
+}
+
 // Connects to data-controller="task-checkbox"
 export default class extends Controller {
   connect() {
@@ -37,6 +49,8 @@ export default class extends Controller {
       .then(response => {
         if (response.ok) {
           console.log("Task Checkbox Updated");
+
+          showNotice("Task checkbox status was successfully updated.");
         } else {
           console.error("Failed to update task checkbox");
         }
@@ -61,6 +75,8 @@ export default class extends Controller {
       .then(response => {
         if (response.ok) {
           console.log("Task Checkbox Updated");
+
+          showNotice("Task checkbox status was successfully updated.");
         } else {
           console.error("Failed to update task checkbox");
         }
@@ -89,6 +105,8 @@ export default class extends Controller {
       .then(data => {
         if (data.status === "success") {
           console.log("Task Checkbox Name Updated");
+
+          showNotice("Task checkbox name was successfully updated.");
         } else {
           console.error("Failed to update task checkbox name");
         }
