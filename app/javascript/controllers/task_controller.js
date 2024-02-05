@@ -16,15 +16,7 @@ export default class extends Controller {
     console.log(this.taskCheckboxesTarget);
     this.taskCheckboxesTarget.insertAdjacentHTML('beforeend', this.taskCheckboxFieldsTarget.innerHTML);
   }
-
-  remove(e) {
-    const taskCheckbox = e.target.closest('.task-checkbox');
-    console.log(taskCheckbox)
-    if (taskCheckbox) {
-      taskCheckbox.remove()
-    }
-  }
-
+  
   remove_association(event) {
     event.preventDefault()
 
