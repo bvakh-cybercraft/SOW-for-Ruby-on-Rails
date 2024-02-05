@@ -12,17 +12,12 @@ export default class extends Controller {
 
   addTaskCheckbox(e) {
     e.preventDefault();
-    console.log(this.taskCheckboxFieldsTarget);
-    console.log(this.taskCheckboxesTarget);
     this.taskCheckboxesTarget.insertAdjacentHTML('beforeend', this.taskCheckboxFieldsTarget.innerHTML);
   }
-  
-  remove_association(event) {
-    event.preventDefault()
 
-    let wrapper = event.target.closest(".nested-fields")
-
-    console.log(wrapper);
+  remove_association(e) {
+    e.preventDefault()
+    let wrapper = e.target.closest(".nested-fields")
     wrapper.remove();
   }
 }
