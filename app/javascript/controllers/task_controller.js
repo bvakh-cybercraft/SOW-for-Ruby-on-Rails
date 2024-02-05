@@ -5,7 +5,6 @@ export default class extends Controller {
     static targets = [
       'taskCheckboxFields',
       'taskCheckboxes',
-      'taskCheckbox',
     ]
   connect() {
   }
