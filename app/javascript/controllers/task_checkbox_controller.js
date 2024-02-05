@@ -23,7 +23,7 @@ export default class extends Controller {
     const taskCheckbox = this.element;
     const checkboxInput = taskCheckbox.querySelector("input[type='checkbox']");
 
-    fetch(`task_checkboxes/${taskCheckbox.id}`, {
+    fetch(`/task_checkboxes/${taskCheckbox.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export default class extends Controller {
     const taskCheckbox = this.element;
     const checkboxInput = taskCheckbox.querySelector("input[type='checkbox']");
 
-    fetch(`task_checkboxes/${taskCheckbox.id}`, {
+    fetch(`/task_checkboxes/${taskCheckbox.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -74,7 +74,7 @@ export default class extends Controller {
     const nameInput = taskCheckbox.querySelector("input[type='text']");
     const newName = nameInput.value;
 
-    fetch(`task_checkboxes/${taskCheckboxId}`, {
+    fetch(`/task_checkboxes/${taskCheckboxId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
