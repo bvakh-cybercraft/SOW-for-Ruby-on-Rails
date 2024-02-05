@@ -12,24 +12,8 @@
                 - @task.images.each do |image|
                     .col
                         = image_tag image, class: "img-fluid rounded"
-        
 
-        - @task.task_checkboxes.each do |task_checkbox|
-            %form
-                %div{class: "row my-2 mx-0", "data-controller": "task-checkbox", id: "#{task_checkbox.id}"}
-                    .col-12.col-sm-10.d-flex.my-2.my-sm-0.px-0
-                        .col-1.col-sm-1.px-0
-                            - if task_checkbox.checked?
-                                %input.form-check-input{ type: "checkbox", class: "mt-2", "data-action": "task-checkbox#mark_as_active", remote: true, "checked": "completed" }
-                            - else
-                                %input.form-check-input{ type: "checkbox", class: "mt-2", "data-action": "task-checkbox#mark_as_completed", remote: true }
-                        .col-11.col-sm-11.px-0.mx-0.px-sm-2
-                            .d-sm-flex.gap-2.mr-0
-                                %input.form-control.col-12.col-sm{ type: "text", "data-action": "task-checkbox#triggerNameChange", value: task_checkbox.name }
-                                %button.btn.btn-primary.col-12.col-sm-2.my-2.my-sm-0{ "data-action": "task-checkbox#triggerNameChange", style: "display: none" } Update
-                    .col-12.col-sm-2.px-0
-                        = link_to "Delete", task_checkbox_path(task_checkbox), method: :delete, data: { remote: true }, class: "btn btn-outline-danger w-100 w-sm-auto"
-        
+        = render "task_checkboxes", task: @task
 
         .d-flex.justify-content-between.mt-3
             = link_to "Home", root_path, class: "btn btn-primary"

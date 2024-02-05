@@ -5,16 +5,17 @@ export default class extends Controller {
   connect() {
     const inputField = this.element.querySelector("input[type='text']");
     const updateButton = this.element.querySelector(".btn-primary");
+    const updateButtonContainer = document.getElementById("update_btn_container");
     const initialValue = inputField.value;
 
     inputField.addEventListener("input", () => {
       const hasChanges = inputField.value !== initialValue;
       console.log(hasChanges)
-      updateButton.style.display = hasChanges ? "block" : "none";
+      updateButtonContainer.style.display = hasChanges ? "block" : "none";
     });
 
     updateButton.addEventListener("click", () => {
-      updateButton.style.display = "none";
+      updateButtonContainer.style.display = "none";
     });
   }
 
