@@ -4,7 +4,7 @@
       / provide new test field for checkboxes
       %template{ "data-task-target": "taskCheckboxFields" }
         .d-flex.my-2.gap-2.nested-fields
-          %input{ type: "text", "data-task-target": "taskCheckbox", name: "task[task_checkboxes_attributes][][name]", class: "form-control" }
+          %input{ type: "text", "data-task-target": "taskCheckbox", name: "task[task_checkboxes_attributes][][name]", class: "form-control", placeholder: "task checkbox" }
           %button{ type: "button", "data-action": "task#remove_association", class: "btn btn-danger btn-sm" }Remove
 
       .w-100.mx-auto.p-3.rounded{style: "background-color: rgb(255, 255, 255);" }
@@ -49,7 +49,7 @@
             %input{ type: "hidden", name: "authenticity_token", value: form_authenticity_token }
 
             %fieldset{"data-task-target": "taskCheckboxes"}
-              %h6 Task Checkboxes
+              %h6.my-3 Add Task Checkboxes
 
-            = link_to "Add Task Checkbox", "#", data: { "action": "task#addTaskCheckbox" }, class: "btn btn-outline-secondary w-100"
+            = link_to "Add Task Checkbox", "#", data: { "action": "task#addTaskCheckbox" }, class: "btn btn-secondary w-100"
           = f.submit task.persisted? ? "Update Task" : "Create Task", class: "btn btn-primary w-100"
