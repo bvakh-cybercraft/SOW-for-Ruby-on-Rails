@@ -30,9 +30,6 @@ class TasksController < ApplicationController
   def edit; end
 
   def update
-
-    binding.pry
-
     if @task.update(task_params)
       redirect_to @task, notice: 'Task was successfully updated.'
     else
