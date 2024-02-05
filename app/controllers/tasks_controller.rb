@@ -7,11 +7,12 @@ class TasksController < ApplicationController
   has_scope :by_priority
 
   def index
-    @tasks = apply_scopes(Task.includes(images_attachments: :blob)).where(user_id: current_user.id).page(params[:page]).per(4)
+    @tasks = apply_scopes(Task.includes(:task_checkboxes, images_attachments: :blob)).where(user_id: current_user.id).page(params[:page]).per(4)
   end
 
   def new
     @task = Task.new
+    @task.task_checkboxes.build
   end
 
   def create
@@ -29,6 +30,9 @@ class TasksController < ApplicationController
   def edit; end
 
   def update
+
+    binding.pry
+
     if @task.update(task_params)
       redirect_to @task, notice: 'Task was successfully updated.'
     else
@@ -58,6 +62,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description, :due_date, :status, :priority, :user_id, images: [])
+    params.require(:task).permit(:title, :description, :due_date, :status, :priority, :user_id, images: [], task_checkboxes_attributes: [:id, :name, :checked, :task_id])
   end
 end
