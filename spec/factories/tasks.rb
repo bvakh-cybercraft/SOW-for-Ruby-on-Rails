@@ -5,6 +5,5 @@ FactoryBot.define do
     due_date { Faker::Date.forward(days: 7) }
     status { Task.statuses.keys.sample }
     priority { Task.priorities.keys.sample }
-    user
   end
 end

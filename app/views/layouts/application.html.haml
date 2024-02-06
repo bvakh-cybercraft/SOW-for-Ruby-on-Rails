@@ -9,12 +9,10 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     %link{crossorigin: "anonymous", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css", integrity: "sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN", rel: "stylesheet"}/
     %script{crossorigin: "anonymous", integrity: "sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL", src: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"}
-    %script{ src: "https://code.jquery.com/jquery-3.6.0.min.js" }
     = javascript_importmap_tags
-    = csrf_meta_tags
   %body{class: "min-vh-100", style: "background-color: rgb(240, 240, 240);"}
     - if notice
-      %p.mx-3.mt-3.alert.alert-success= notice
+      %p.alert.alert-success= notice
     - if alert
-      %p.mx-3.mt-3.alert.alert-danger= alert
+      %p.alert.alert-danger= alert
     = yield
