@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   resources :tasks
+  resources :task_checkboxes, only: [:update, :destroy]
   root 'tasks#index'
 
   # Defines the root path route ("/")

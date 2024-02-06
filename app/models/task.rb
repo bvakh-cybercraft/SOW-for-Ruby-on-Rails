@@ -1,4 +1,8 @@
 class Task < ApplicationRecord
+  belongs_to :user
+  has_many :task_checkboxes, dependent: :destroy
+  accepts_nested_attributes_for :task_checkboxes
+
   scope :by_status, ->(status) { where(status: statuses[status]) }
   scope :by_priority, ->(priority) { where(priority: priorities[priority]) }
 
