@@ -22,7 +22,12 @@
                         %p= task.description
                         %p= task.due_date.strftime("%d %b %Y")
 
-                        = render "task_checkboxes", task: task
+                        - task.task_checkboxes.each do |task_checkbox|
+                            %div{class: "d-flex gap-4 align-items-center mt-2 mb-2", id: "#{task_checkbox.id}"}
+                                = link_to "Delete", task_checkbox_path(task_checkbox), method: :delete, data: { remote: true }, class: "btn btn-outline-danger btn-sm"
+                                .d-flex.gap-4.mt-1
+                                    %input.form-check-input{ type: "checkbox", checked: (task_checkbox.checked ? "completed" : nil)}
+                                    %h6= task_checkbox.name
 
                         .d-none.d-sm-flex.align-items-center
                             .container-lg
