@@ -24,9 +24,9 @@ class TasksController < ApplicationController
     end
   end
 
-  def show; end
+  # def show; end
 
-  def edit; end
+  # def edit; end
 
   def update
     if @task.update(task_params)
@@ -57,7 +57,7 @@ class TasksController < ApplicationController
     return redirect_to root_path, alert: "Access is denied. You are not the author of this task." unless @task.user == current_user
   end
 
-  def task_params
-    params.require(:task).permit(:title, :description, :due_date, :status, :priority, :user_id, images: [])
-  end
+  # def task_params
+  #   params.require(:task).permit(:title, :description, :due_date, :status, :priority, :user_id, images: [])
+  # end
 end
