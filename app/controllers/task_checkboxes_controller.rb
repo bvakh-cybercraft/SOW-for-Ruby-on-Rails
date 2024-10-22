@@ -19,9 +19,9 @@ class TaskCheckboxesController < ApplicationController
     end
   end
 
-  private
+  # private
 
-  def task_checkbox_params
-    params.require(:task_checkbox).permit(:id, :name, :checked)
-  end
+  # def task_checkbox_params
+  #   params.require(:task_checkbox).permit(:id, :name, :checked)
+  # end
 end

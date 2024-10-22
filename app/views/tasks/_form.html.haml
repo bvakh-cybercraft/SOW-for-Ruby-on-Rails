@@ -39,3 +39,15 @@
             = f.file_field :images, multiple: true, class: "form-control"
 
           = f.submit task.persisted? ? "Update Task" : "Create Task", class: "btn btn-primary w-100"
+
+.container-lg
+  .row
+    .col-12.col-sm-10.col-md-8.mx-auto{ "data-controller": "task" }
+      / provide new test field for checkboxes
+      %template{ "data-task-target": "taskCheckboxFields" }
+        .d-flex.my-2.gap-2.nested-fields
+          %input{ type: "text", "data-task-target": "taskCheckbox", name: "task[task_checkboxes_attributes][][name]", class: "form-control", placeholder: "task checkbox" }
+          %button{ type: "button", "data-action": "task#remove_association", class: "btn btn-danger btn-sm" }Remove
+
+      .w-100.mx-auto.p-3.rounded{style: "background-color: rgb(255, 255, 255);" }
+        = form_for task, method: method, html: { class: "d-flex flex-column gap-3" } do |f|

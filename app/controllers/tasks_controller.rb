@@ -24,9 +24,9 @@ class TasksController < ApplicationController
     end
   end
 
-  def show; end
+  # def show; end
 
-  def edit; end
+  # def edit; end
 
   def update
     if @task.update(task_params)
@@ -58,6 +58,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description, :due_date, :status, :priority, :user_id, images: [])
+    params.require(:task).permit(:title, :description, :due_date, :status, :priority, :user_id, images: []
   end
 end
