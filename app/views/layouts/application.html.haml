@@ -13,9 +13,8 @@
     = javascript_importmap_tags
     = csrf_meta_tags
   %body{class: "min-vh-100", style: "background-color: rgb(240, 240, 240);"}
-    .py-2.message_container#message_container
-      - if notice
-        %p.mx-3.mt-3.alert.alert-success= notice
-      - if alert
-        %p.mx-3.mt-3.alert.alert-danger= alert
+    - if notice
+      %p.mx-3.mt-3.alert.alert-success= notice
+    - if alert
+      %p.mx-3.mt-3.alert.alert-danger= alert
     = yield
