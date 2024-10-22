@@ -18,3 +18,9 @@
     - if alert
       %p.mx-3.mt-3.alert.alert-danger= alert
     = yield
+
+  .py-2.message_container#message_container
+      - if notice
+        %p.mx-3.mt-3.alert.alert-success= notice
+      - if alert
+        %p.mx-3.mt-3.alert.alert-danger= alert
