@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :user
-  has_many :task_checkboxes, dependent: :destroy
+  has_many :task_checkboxes, dependent: :destroy, inverse_of: :task
   accepts_nested_attributes_for :task_checkboxes
 
   scope :by_status, ->(status) { where(status: statuses[status]) }
